@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Rede Social</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TELA DE AUTENTICAÇÃO (LOGIN / CADASTRO) -->
+    <div id="auth-section" class="container auth-container">
+        <div class="card">
+            <h1 class="logo">RedeSocial</h1>
+            
+            <!-- Abas -->
+            <div class="tabs">
+                <button id="tab-login" class="tab active" onclick="alternarAba('login')">Entrar</button>
+                <button id="tab-cadastro" class="tab" onclick="alternarAba('cadastro')">Cadastrar</button>
+            </div>
+
+            <!-- Formulário de Login -->
+            <form id="form-login" class="form active">
+                <input type="text" id="login-identificador" placeholder="E-mail ou Username" required>
+                <input type="password" id="login-senha" placeholder="Senha" required>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+
+            <!-- Formulário de Cadastro -->
+            <form id="form-cadastro" class="form">
+                <input type="text" id="cad-nome" placeholder="Nome completo" required>
+                <input type="text" id="cad-username" placeholder="Username (ex: joaosilva)" required>
+                <input type="email" id="cad-email" placeholder="E-mail" required>
+                <input type="password" id="cad-senha" placeholder="Senha" required>
+                <button type="submit" class="btn-primary">Criar Conta</button>
+            </form>
+
+            <p id="auth-mensagem" class="mensagem-erro"></p>
+        </div>
+    </div>
+
+    <!-- TELA PRINCIPAL (FEED) -->
+    <div id="feed-section" class="hidden">
+        <header class="navbar">
+            <div class="nav-content">
+                <span class="logo">RedeSocial</span>
+                <div class="user-info">
+                    <span id="usuario-logado-nome"></span>
+                    <button onclick="logout()" class="btn-logout">Sair</button>
+                </div>
+            </div>
+        </header>
+      
+
+        <main class="container feed-container">
+            <!-- Caixa de Nova Postagem -->
+            <div class="card post-box">
+                <form id="form-post">
+                    <textarea id="post-conteudo" rows="3" placeholder="No que você está pensando?" required></textarea>
+                    <div class="post-actions">
+                        <button type="submit" class="btn-primary">Publicar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista de Publicações -->
+            <div id="lista-publicacoes">
+                <p class="loading">Carregando feed...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
